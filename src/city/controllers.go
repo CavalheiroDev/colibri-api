@@ -24,6 +24,12 @@ func (c *CityController) Routes() []restserver.Route {
 			Function: c.Create,
 			Prefix:   restserver.PublicApi,
 		},
+		{
+			URI:      "city/{zipCode}",
+			Method:   http.MethodGet,
+			Function: c.GetCityByZipCode,
+			Prefix:   restserver.PublicApi,
+		},
 	}
 }
 
@@ -51,6 +57,16 @@ func (c *CityController) Create(wctx restserver.WebContext) {
 	}
 
 	response, err := c.useCase.Create(wctx.Context(), &request)
+	if err != nil {
+		wctx.ErrorResponse(http.StatusInternalServerError, err)
+		return
+	}
+
+	wctx.JsonResponse(http.StatusOK, response)
+}
+
+func (c *CityController) GetCityByZipCode(wctx restserver.WebContext) {
+	response, err := c.useCase.GetCityByZipCode(wctx.Context(), wctx.PathParam("zipCode"))
 	if err != nil {
 		wctx.ErrorResponse(http.StatusInternalServerError, err)
 		return

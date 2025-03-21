@@ -23,3 +23,8 @@ type CityCreateRequest struct {
 	Name  string `json:"name" validate:"required"`
 	State string `json:"state" validate:"required"`
 }
+
+type ViaCepCityResponse struct {
+	Name  string `json:"localidade"`
+	State string `json:"uf"`
+}

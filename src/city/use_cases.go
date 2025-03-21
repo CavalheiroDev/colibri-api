@@ -9,6 +9,7 @@ import (
 
 type CityUseCases struct {
 	cityRepository ICityRepository
+	cityAPI        ICityAPI
 }
 
 func (u *CityUseCases) List(ctx context.Context, params *CityListQueryParams) (CityPageResponse, error) {
@@ -36,6 +37,16 @@ func (u *CityUseCases) Create(ctx context.Context, dto *CityCreateRequest) (*Cit
 	if err != nil {
 		logging.Error("error in Create city: %+v", err)
 		return nil, errors.New(ErrOnCreateCity)
+	}
+
+	return response, nil
+}
+
+func (u *CityUseCases) GetCityByZipCode(ctx context.Context, zipCode string) (*ViaCepCityResponse, error) {
+	response, err := u.cityAPI.GetCityByZipCode(ctx, zipCode)
+	if err != nil {
+		logging.Error("error in GetCityByZipCode: %+v", err)
+		return nil, errors.New(ErrOnGetCityByZipCode)
 	}
 
 	return response, nil

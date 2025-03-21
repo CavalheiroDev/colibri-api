@@ -16,7 +16,9 @@ require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/aws/aws-sdk-go v1.45.28 // indirect
+	github.com/benbjohnson/clock v1.3.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/cenkalti/backoff/v3 v3.1.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
@@ -56,6 +58,7 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
+	github.com/mercari/go-circuitbreaker v0.0.2 // indirect
 	github.com/newrelic/go-agent/v3 v3.26.0 // indirect
 	github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.1 // indirect
 	github.com/newrelic/go-agent/v3/integrations/nrredis-v8 v1.0.0 // indirect
