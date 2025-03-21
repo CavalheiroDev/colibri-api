@@ -20,7 +20,7 @@ func (a *ViaCepAPI) GetCityByZipCode(ctx context.Context, zipCode string) (*ViaC
 		Client:     a.client,
 		HttpMethod: http.MethodGet,
 		Path:       fmt.Sprintf("/ws/%s/json", zipCode),
-		Cache:      cacheDB.NewCache[ViaCepCityResponse](fmt.Sprintf("postal-code-%s", zipCode), 30*time.Second),
+		Cache:      cacheDB.NewCache[ViaCepCityResponse](fmt.Sprintf("postal-code-%s", zipCode), 5*time.Minute),
 	}.Call()
 
 	if response.ErrorBody() != nil {
